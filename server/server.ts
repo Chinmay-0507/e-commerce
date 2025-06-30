@@ -1,3 +1,14 @@
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('CRITICAL: Unhandled Rejection at:', promise, 'reason:', reason);
+  // Application specific logging, throwing an error, or other logic here
+});
+
+process.on('uncaughtException', (error, origin) => {
+  console.error('CRITICAL: Uncaught Exception at:', origin, 'error:', error);
+  // Application specific logging, throwing an error, or other logic here
+})
+
+
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
